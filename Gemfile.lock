@@ -60,6 +60,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    lockbox (0.4.9)
     loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -136,6 +137,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   jbuilder (~> 2.5)
+  lockbox
   pg
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.4)
