@@ -1,5 +1,16 @@
 class PeopleController < ApplicationController
+  include Secured
+
   before_action :set_person, only: [:show, :update, :destroy]
+
+  def private
+    render json: 'Hello from a private endpoint! You need to be authenticated to see this.'
+  end
+
+  def private_scoped
+    render json: { message: 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.' }
+  end
+  
 
   # GET /people
   # GET /people.json
