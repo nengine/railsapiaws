@@ -9,16 +9,16 @@ class JsonWebToken
     JWT.decode(token, nil,
                true, # Verify the signature of this token
                algorithms: 'RS256',
-               iss: 'https://railsapiaws.onrender.com/',
+               iss: ENV['AUTH0_ISS'],
                verify_iss: true,
-               aud: Rails.application.secrets.auth0_api_audience,
+               aud: Rails.application.credentials[:auth0][:api_audience],
                verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("https://railsapiaws.onrender.com/.well-known/jwks.json")
+    jwks_raw = Net::HTTP.get URI(ENV['AUTH0_URI'])
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
