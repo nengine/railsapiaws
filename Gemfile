@@ -43,3 +43,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'lockbox'
 gem 'jwt'
 gem 'rack-cors'
+gem "redis"
+gem 'sidekiq'
