@@ -2,6 +2,6 @@ class ExampleJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    Key.create(name: args[0], value: args[1])
+    User.create(first_name: args[0], last_name: args[1])
   end
 end
